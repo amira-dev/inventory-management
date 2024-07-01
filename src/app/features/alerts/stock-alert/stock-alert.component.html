@@ -1,0 +1,8 @@
+<div *ngIf="lowStockProducts.length > 0" class="alert alert-warning">
+    <h4>Low Stock Alert</h4>
+    <ul>
+        <li *ngFor="let product of lowStockProducts">
+            Product {{ product.productId }} is low on stock (Quantity: {{ product.quantity }})
+        </li>
+    </ul>
+</div>

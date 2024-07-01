@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+/* Define CSS variables for colors, spacing, and fonts */
+:root {
+  --primary-color: #3f51b5;
+  --secondary-color: #f5f5f5;
+  --border-color: #ddd;
+  --font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  --font-size-title: 1.2em;
+  --font-weight-bold: bold;
+  --padding-default: 16px;
+}
+
+/* Global styles */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: var(--font-family);
+}
+
+/* Container styles */
+.container {
+  flex: 1 0 auto;
+  min-height: 450px;
+}
+
+/* Card styles */
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--padding-default);
+}
+
+.card-header {
+  background-color: var(--secondary-color);
+  padding: var(--padding-default);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-title {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+}
+
+/* Footer styles */
+footer {
+  flex-shrink: 0;
+}

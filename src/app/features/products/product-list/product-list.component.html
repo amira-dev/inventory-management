@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="my-3 product-detail-title">Product List</h2>
+            <button mat-button type="button" color="primary" (click)="navigateToAddProduct()">Add Product</button>
+        </div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef> Price </th>
+                <td mat-cell *matCellDef="let element">{{element.price | currency:'EUR'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="quantity">
+                <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button color="primary" (click)="viewProduct(element.id)">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button mat-icon-button color="accent" (click)="editProduct(element.id)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [length]="dataSource.data.length" [pageSize]="7" [pageSizeOptions]="[5, 10, 20]"
+            showFirstLastButtons></mat-paginator>
+    </div>
+</div>

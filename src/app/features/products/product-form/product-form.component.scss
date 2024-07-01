@@ -1,0 +1,14 @@
+.detail-item {
+    display: flex;
+    align-items: center;
+}
+
+.detail-key {
+    flex: 0 0 120px;
+    font-weight: bold;
+}
+
+.detail-value {
+    flex: 1;
+}
+

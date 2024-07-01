@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10">
+        <mat-card class="product-detail-card">
+            <mat-card-header class="card-header">
+                <mat-card-title class="card-title">Product Details</mat-card-title>
+            </mat-card-header>
+            <!-- Use the async pipe to subscribe to the product observable -->
+            <mat-card-content *ngIf="product$ | async as product" class="mt-3">
+                <div *ngIf="product">
+                    <div class="detail-item">
+                        <span class="detail-key">ID:</span>
+                        <span class="detail-value">{{ product.id }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-key">Name:</span>
+                        <span class="detail-value">{{ product.name }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-key">Description:</span>
+                        <span class="detail-value">{{ product.description }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-key">Price:</span>
+                        <span class="detail-value">{{ product.price | currency:'EUR' }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-key">Quantity:</span>
+                        <span class="detail-value">{{ product.quantity }}</span>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button color="primary" (click)="goBack()">Back to List</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

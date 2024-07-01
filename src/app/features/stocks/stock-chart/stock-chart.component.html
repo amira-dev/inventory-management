@@ -1,0 +1,15 @@
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10">
+        <mat-card class="stock-chart-card">
+            <mat-card-header class="stock-chart-header">
+                <mat-card-title class="stock-chart-title">Stock Levels</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <app-chart [data]="stockData" [view]="view" [showXAxis]="true" [showYAxis]="true" [gradient]="false"
+                    [showLegend]="true" [showXAxisLabel]="true" xAxisLabel="Products" [showYAxisLabel]="true"
+                    yAxisLabel="Stock Level" [colorScheme]="{ domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'] }">
+                </app-chart>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

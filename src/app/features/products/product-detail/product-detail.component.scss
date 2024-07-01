@@ -1,0 +1,15 @@
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.detail-key {
+    font-weight: bold;
+    margin-right: 8px;
+    width: 150px;
+}
+
+.detail-value {
+    flex: 1;
+}
