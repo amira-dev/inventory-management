@@ -8,6 +8,12 @@ export interface Product {
   quantity: number;
 }
 
+export interface Stock {
+  productId: number;
+  productName: string;
+  quantity: number;
+}
+
 const PRODUCTS: Product[] = [
   { id: 1, name: 'Laptop Pro', description: 'High-performance laptop with 16GB RAM and 512GB SSD. Ideal for gaming, video editing, and heavy multitasking. Comes with a sleek design, backlit keyboard, and long battery life. Perfect for professionals and power users who need reliability and speed.', price: 1200, quantity: 50 },
   { id: 2, name: 'Wireless Mouse', description: 'Ergonomic wireless mouse with adjustable DPI settings. Offers precision and comfort for long hours of use. Compatible with various operating systems and features a long-lasting battery. Perfect for office work and casual gaming.', price: 25, quantity: 150 },
@@ -25,8 +31,6 @@ const PRODUCTS: Product[] = [
   { id: 14, name: 'Fitness Tracker', description: 'Fitness tracker with heart rate monitor and sleep tracking. Tracks daily activities, workouts, and sleep patterns. Features a lightweight design, long battery life, and water resistance. Perfect for health-conscious individuals.', price: 75, quantity: 90 },
   { id: 15, name: 'Electric Toothbrush', description: 'Rechargeable electric toothbrush with multiple brushing modes. Provides effective cleaning and gum care. Features a timer, pressure sensor, and long battery life. Ideal for maintaining oral hygiene.', price: 60, quantity: 110 }
 ];
-
-
 
 export const handlers = [
   http.get('/api/products', () => {
@@ -62,12 +66,11 @@ export const handlers = [
   }),
 
   http.get('/api/stocks', () => {
-    const stockLevels = PRODUCTS.map(product => ({
+    const stockLevels: Stock[] = PRODUCTS.map(product => ({
       productId: product.id,
       productName: product.name,
       quantity: product.quantity
     }));
     return HttpResponse.json(stockLevels);
   }),
-
 ];
